@@ -1,0 +1,20 @@
+<nav>
+  <a href="#">Gap Bootcamp</a>
+  <div>
+    <ul>
+      <% if host_signed_in? %>
+        <li>
+          <%= link_to 'Sign out', destroy_host_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'Register', new_host_registration_path %>
+        </li>
+
+        <li>
+          <%= link_to 'Sign in', new_host_session_path %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
