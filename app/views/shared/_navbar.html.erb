@@ -1,5 +1,5 @@
 <nav>
-  <a href="#">Gap Bootcamp</a>
+  <%= link_to 'Gap Bootcamp', controller: 'home', action: 'index' %>
   <div>
     <ul>
       <% if host_signed_in? %>
