@@ -1,11 +1,17 @@
 class PropertiesController < ApplicationController
-  before_action :authenticate_host!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_host!, except: [:index, :show]
   before_action :set_property, only: [:show, :edit, :update, :destroy]
 
   # GET /properties
   # GET /properties.json
   def index
     @properties = Property.all
+  end
+
+  # GET /properties/mine
+  # GET /properties/mine.json
+  def mine
+    @properties = Property.where(host_id: current_host.id)
   end
 
   # GET /properties/1
