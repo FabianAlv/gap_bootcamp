@@ -1,4 +1,5 @@
 class PropertiesController < ApplicationController
+  before_action :authenticate_host!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_property, only: [:show, :edit, :update, :destroy]
 
   # GET /properties
