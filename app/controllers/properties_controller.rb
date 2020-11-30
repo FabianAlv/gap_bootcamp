@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController
   before_action :authenticate_host!, except: [:index, :show]
   before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :owner!, only: [:edit, :update, :destroy]
 
   # GET /properties
   # GET /properties.json
@@ -77,5 +78,13 @@ class PropertiesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def property_params
       params.require(:property).permit(:title, :description, :price, :host_id)
+    end
+
+    # Check if the action is done by the owner of the property
+    def owner!
+      unless current_host.id == @property.host_id
+        flash[:error] = "You do not have permission to perform this action"
+        redirect_to properties_mine_path # halts request cycle
+      end
     end
 end
