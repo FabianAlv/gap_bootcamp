@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_002207) do
     t.integer "nights"
     t.integer "guests"
     t.float "total_cost"
-    t.boolean "approved", default: false, null: false
+    t.string "approved", default: "pending", null: false
     t.integer "property_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

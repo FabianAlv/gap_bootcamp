@@ -8,7 +8,7 @@ class CreateReservations < ActiveRecord::Migration[6.0]
       t.integer :nights
       t.integer :guests
       t.float :total_cost
-      t.boolean :approved, null: false, default: false
+      t.string :approved, null: false, default: 'pending'
       t.references :property, null: false, foreign_key: true
 
       t.timestamps
