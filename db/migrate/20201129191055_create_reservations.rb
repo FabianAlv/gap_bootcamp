@@ -10,6 +10,7 @@ class CreateReservations < ActiveRecord::Migration[6.0]
       t.float :total_cost
       t.string :approved, null: false, default: 'pending'
       t.references :property, null: false, foreign_key: true
+      t.references :host, null: false, foreign_key: true
 
       t.timestamps
     end

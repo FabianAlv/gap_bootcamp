@@ -65,12 +65,15 @@ ActiveRecord::Schema.define(version: 2020_11_30_002207) do
     t.float "total_cost"
     t.string "approved", default: "pending", null: false
     t.integer "property_id", null: false
+    t.integer "host_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["host_id"], name: "index_reservations_on_host_id"
     t.index ["property_id"], name: "index_reservations_on_property_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "properties", "hosts"
+  add_foreign_key "reservations", "hosts"
   add_foreign_key "reservations", "properties"
 end

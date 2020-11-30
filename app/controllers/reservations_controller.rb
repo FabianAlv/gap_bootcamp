@@ -1,10 +1,11 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_host!, only: [:index]
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.where(host_id: current_host.id)
   end
 
   # GET /reservations/1
@@ -69,6 +70,6 @@ class ReservationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def reservation_params
-      params.require(:reservation).permit(:name, :last_name, :email, :phone, :nights, :guests, :total_cost, :approved, :property_id)
+      params.require(:reservation).permit(:name, :last_name, :email, :phone, :nights, :guests, :total_cost, :approved, :host_id, :property_id)
     end
 end

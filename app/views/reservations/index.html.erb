@@ -14,26 +14,28 @@
       <th>Total cost</th>
       <th>Approved</th>
       <th>Property</th>
+      <th>Host</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @reservations.each do |reservation| %>
-      <tr>
-        <td><%= reservation.name %></td>
-        <td><%= reservation.last_name %></td>
-        <td><%= reservation.email %></td>
-        <td><%= reservation.phone %></td>
-        <td><%= reservation.nights %></td>
-        <td><%= reservation.guests %></td>
-        <td><%= reservation.total_cost %></td>
-        <td><%= reservation.approved %></td>
-        <td><%= reservation.property_id %></td>
-        <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= reservation.name %></td>
+      <td><%= reservation.last_name %></td>
+      <td><%= reservation.email %></td>
+      <td><%= reservation.phone %></td>
+      <td><%= reservation.nights %></td>
+      <td><%= reservation.guests %></td>
+      <td><%= reservation.total_cost %></td>
+      <td><%= reservation.approved %></td>
+      <td><%= reservation.property_id %></td>
+      <td><%= reservation.host_id %></td>
+      <td><%= link_to 'Show', reservation %></td>
+      <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+      <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
