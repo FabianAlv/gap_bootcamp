@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'properties/:id/reservations/new', to: 'reservations#new', as: 'reservations_new'
   resources :reservations
   get 'properties/mine', to: 'properties#mine'
   resources :properties

@@ -15,7 +15,12 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
+    @property = Property.where(id: params[:id]).first
+
     @reservation = Reservation.new
+
+    @reservation.property_id = @property.id
+    @reservation.host_id = @property.host_id
   end
 
   # GET /reservations/1/edit
