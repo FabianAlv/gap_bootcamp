@@ -18,6 +18,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
+    @owner = current_host.id == @property.host_id
   end
 
   # GET /properties/new

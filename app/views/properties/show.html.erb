@@ -20,5 +20,9 @@
   <%= @property.host_id %>
 </p>
 
+<% if host_signed_in? && @owner %>
 <%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_mine_path %>
+<% else %>
 <%= link_to 'Back', properties_path %>
+<% end %>
