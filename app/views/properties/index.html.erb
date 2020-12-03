@@ -11,7 +11,7 @@
     <div class="card-body">
       <h5 class="card-title"><%= property.title %></h5>
       <p class="card-text"><%= property.description %></p>
-      <p class="card-text"><%= property.price %></p>
+      <p class="card-text">$USD <%= property.price %></p>
       <p class="card-text"><%= link_to 'More', property %></p>
       <%= link_to 'Make reservation', reservations_new_path(property), :class => 'btn btn-primary' %>
     </div>
