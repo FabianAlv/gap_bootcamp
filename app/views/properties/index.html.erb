@@ -2,28 +2,18 @@
 
 <h1>Properties</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Host</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @properties.each do |property| %>
-    <tr>
-      <td><%= image_tag(property.image) %></td>
-      <td><%= property.title %></td>
-      <td><%= property.description %></td>
-      <td><%= property.price %></td>
-      <td><%= property.host_id %></td>
-      <td><%= link_to 'Make reservation', reservations_new_path(property) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="card-deck">
+  <% @properties.each do |property| %>
+  <div class="card">
+    <div class="image-hider">
+      <%= image_tag(property.image, :class => 'card-img-top') %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= property.title %></h5>
+      <p class="card-text"><%= property.description %></p>
+      <p class="card-text"><%= property.price %></p>
+      <%= link_to 'Make reservation', reservations_new_path(property), :class => 'btn btn-primary' %>
+    </div>
+  </div>
+  <% end %>
+</div>
