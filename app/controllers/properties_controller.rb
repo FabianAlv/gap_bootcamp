@@ -18,7 +18,11 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
-    @owner = current_host.id == @property.host_id
+    @owner = false
+
+    if current_host
+      @owner = current_host.id == @property.host_id
+    end
   end
 
   # GET /properties/new

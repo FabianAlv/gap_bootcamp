@@ -1,23 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @property.title %>
-</p>
+<div class="d-flex flex-row bd-highlight mb-3">
+  <div class="show-img">
+    <%= image_tag(@property.image, :class => 'rounded') %>
+  </div>
+  <div class="p-2 bd-highlight">
+    <p>
+      <strong>Title:</strong>
+      <%= @property.title %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      $USD <%= @property.price %>
+    </p>
+
+    <p>
+      <strong>Host:</strong>
+      <%= @property.host.email %>
+    </p>
+  </div>
+</div>
 
 <p>
   <strong>Description:</strong>
   <%= @property.description %>
 </p>
 
-<p>
-  <strong>Price:</strong>
-  $USD <%= @property.price %>
-</p>
+
 
 <p>
-  <strong>Host:</strong>
-  <%= @property.host_id %>
+  <%= link_to 'Make reservation', reservations_new_path(@property), :class => 'btn btn-primary' %>
 </p>
 
 <% if host_signed_in? && @owner %>

@@ -14,11 +14,23 @@
  *= require_self
  */
 
-.card {
-  max-width: 250px;
+.card-deck .card {
+  width: 250px;
+  flex: none !important;
+  margin-bottom: 1rem !important;
 }
 
 .image-hider {
   max-height: 200px;
   overflow: hidden;
+}
+
+.show-img {
+  max-width: 300px;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.show-img img {
+  max-width: 300px;
 }
