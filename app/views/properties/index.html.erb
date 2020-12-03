@@ -22,12 +22,8 @@
       <td><%= property.description %></td>
       <td><%= property.price %></td>
       <td><%= property.host_id %></td>
-      <td><%= link_to 'Show', property %></td>
+      <td><%= link_to 'Make reservation', reservations_new_path(property) %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Property', new_property_path %>
