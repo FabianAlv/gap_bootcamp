@@ -11,42 +11,52 @@
 </div>
 <% end %>
 
-<div class="field">
+<div class="form-group">
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, :class => 'form-control' %>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= form.label :last_name %>
-  <%= form.text_field :last_name %>
+  <%= form.text_field :last_name, :class => 'form-control' %>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= form.label :email %>
-  <%= form.text_field :email %>
+  <%= form.text_field :email, :class => 'form-control' %>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= form.label :phone %>
-  <%= form.text_field :phone %>
+  <%= form.text_field :phone, :class => 'form-control' %>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= form.label :nights %>
-  <%= form.number_field :nights %>
+  <%= form.number_field :nights, min: 1, :class => 'form-control' %>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= form.label :guests %>
-  <%= form.number_field :guests %>
+  <%= form.number_field :guests, min: 1, :class => 'form-control' %>
 </div>
 
-<div class="field">
-  <%= form.label :total_cost %> $USD
-  <%= form.text_field :total_cost %>
+<div class="form-group">
+  <%= form.label :property_id %>
+  <%= form.number_field :property_id,  :class => 'form-control', :readonly => true %>
 </div>
 
-<div class="actions">
-  <%= form.submit %>
+<div class="form-group">
+  <%= form.label :host_id %>
+  <%= form.number_field :host_id, :class => 'form-control', :readonly => true %>
+</div>
+
+<div class="form-group">
+  <%= form.label :total_cost, :class => 'font-weight-bold' %> $USD
+  <%= form.text_field :total_cost, :class => 'form-control', :readonly => true %>
+</div>
+
+<div>
+  <%= form.submit 'Save', :class => 'btn btn-primary' %>
 </div>
 <% end %>

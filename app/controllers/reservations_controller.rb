@@ -19,8 +19,13 @@ class ReservationsController < ApplicationController
 
     @reservation = Reservation.new
 
+    p 1
+
     @reservation.property_id = @property.id
     @reservation.host_id = @property.host_id
+    @reservation.total_cost = @property.price
+
+    p 2
   end
 
   # GET /reservations/1/edit

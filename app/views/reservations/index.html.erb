@@ -2,23 +2,21 @@
 
 <h1>Reservations</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Nights</th>
-      <th>Guests</th>
-      <th>Total cost</th>
-      <th>Approved</th>
-      <th>Property</th>
-      <th>Host</th>
-      <th colspan="3"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Nights</th>
+      <th scope="col">Guests</th>
+      <th scope="col">Total cost</th>
+      <th scope="col">Property</th>
+      <th scope="col">Approved</th>
+      <th colspan="1"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @reservations.each do |reservation| %>
     <tr>
@@ -28,18 +26,11 @@
       <td><%= reservation.phone %></td>
       <td><%= reservation.nights %></td>
       <td><%= reservation.guests %></td>
-      <td><%= reservation.total_cost %></td>
+      <td>$USD <%= reservation.total_cost %></td>
+      <td><%= reservation.property.title %></td>
       <td><%= reservation.approved %></td>
-      <td><%= reservation.property_id %></td>
-      <td><%= reservation.host_id %></td>
-      <td><%= link_to 'Show', reservation %></td>
       <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-      <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Reservation', new_reservation_path %>
